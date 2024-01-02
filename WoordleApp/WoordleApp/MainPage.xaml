@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WoordleApp.MainPage">
+    
+    <ContentPage>
+        <StackLayout VerticalOptions="Center">
+
+            <Entry x:Name="NewWordEntry" Placeholder="Enter new word" />
+            <Button Text="Add Word" Command="{Binding AddWordCommand}" />
+
+            <Picker x:Name="WordPicker" ItemsSource="{Binding Words}" />
+            <Button Text="Start Game" Command="{Binding StartGameCommand}" FontSize="23"/>
+
+
+            
+        
+            
+        </StackLayout>
+    </ContentPage>
+    <ContentPage>
+        <StackLayout>
+            <Label x:Name="ResultLabel" Text="" FontSize="20" HorizontalOptions="Center"/>
+            <Label x:Name="UsedLettersLabel" Text="Used Letters: " FontSize="16" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <Label x:Name="SecretWordLabel" Text="Secret Word: ???" FontSize="34" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        <StackLayout x:Name="KeyboardStack" VerticalOptions="EndAndExpand" BackgroundColor="Green" HeightRequest="200" Padding="10, 0">
+            
+            <StackLayout.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="HeightRequest" Value="40" />
+                    <Setter Property="WidthRequest" Value="40" />
+                    <Setter Property="Command" Value="{Binding UpdateUserInput}" />
+                </Style>
+            </StackLayout.Resources>
+            <StackLayout Padding="0, 20" HorizontalOptions="Center" VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="-5">
+                    <Button x:Name="Q" Text="Q" Command="{Binding UpdateUserInput}" CommandParameter="Q"/>
+                    <Button x:Name="W" Text="W" Command="{Binding UpdateUserInput}" CommandParameter="W"/>
+                    <Button x:Name="E" Text="E" Command="{Binding UpdateUserInput}" CommandParameter="E"/>
+                    <Button x:Name="R" Text="R" Command="{Binding UpdateUserInput}" CommandParameter="R"/>
+                    <Button x:Name="T" Text="T" Command="{Binding UpdateUserInput}" CommandParameter="T"/>
+                    <Button x:Name="Y" Text="Y" Command="{Binding UpdateUserInput}" CommandParameter="Y"/>
+                    <Button x:Name="U" Text="U" Command="{Binding UpdateUserInput}" CommandParameter="U"/>
+                    <Button x:Name="I" Text="I" Command="{Binding UpdateUserInput}" CommandParameter="I"/>
+                    <Button x:Name="O" Text="O" Command="{Binding UpdateUserInput}" CommandParameter="O"/>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="-5">
+                    <Button x:Name="A" Text="A" Command="{Binding UpdateUserInput}" CommandParameter="A"/>
+                    <Button x:Name="S" Text="S" Command="{Binding UpdateUserInput}" CommandParameter="S"/>
+                    <Button x:Name="D" Text="D" Command="{Binding UpdateUserInput}" CommandParameter="D"/>
+                    <Button x:Name="F" Text="F" Command="{Binding UpdateUserInput}" CommandParameter="F"/>
+                    <Button x:Name="G" Text="G" Command="{Binding UpdateUserInput}" CommandParameter="G"/>
+                    <Button x:Name="H" Text="H" Command="{Binding UpdateUserInput}" CommandParameter="H"/>
+                    <Button x:Name="J" Text="J" Command="{Binding UpdateUserInput}" CommandParameter="J"/>
+                    <Button x:Name="K" Text="K" Command="{Binding UpdateUserInput}" CommandParameter="K"/>
+                    <Button x:Name="P" Text="P" Command="{Binding UpdateUserInput}" CommandParameter="P"/>
+
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="-5">
+                    <Button x:Name="L" Text="L" Command="{Binding UpdateUserInput}" CommandParameter="L"/>
+                    <Button x:Name="Z" Text="Z" Command="{Binding UpdateUserInput}" CommandParameter="Z"/>
+                    <Button x:Name="X" Text="X" Command="{Binding UpdateUserInput}" CommandParameter="X"/>
+                    <Button x:Name="C" Text="C" Command="{Binding UpdateUserInput}" CommandParameter="C"/>
+                    <Button x:Name="V" Text="V" Command="{Binding UpdateUserInput}" CommandParameter="V"/>
+                    <Button x:Name="B" Text="B" Command="{Binding UpdateUserInput}" CommandParameter="B"/>
+                    <Button x:Name="N" Text="N" Command="{Binding UpdateUserInput}" CommandParameter="N"/>
+                    <Button x:Name="M" Text="M" Command="{Binding UpdateUserInput}" CommandParameter="M"/>
+
+                </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+</CarouselPage>
