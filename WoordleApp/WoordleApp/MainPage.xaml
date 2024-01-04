@@ -1,29 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WoordleApp.MainPage">
-    
+             x:Class="WoordleApp.MainPage"
+             BackgroundColor="Aqua">
+
+
     <ContentPage>
-        <StackLayout VerticalOptions="Center">
+        <StackLayout VerticalOptions="Center"
+                      BackgroundColor="WhiteSmoke">
 
             <Entry x:Name="NewWordEntry" Placeholder="Enter new word" />
             <Button Text="Add Word" Command="{Binding AddWordCommand}" />
-
-            <Picker x:Name="WordPicker" ItemsSource="{Binding Words}" />
-            <Button Text="Start Game" Command="{Binding StartGameCommand}" FontSize="23"/>
-
-
+            <Button Text="Clear Data" Command="{Binding ClearDataCommand}" />
+            <Button Text="Save to File" Command="{Binding SaveToFileCommand}" />
             
-        
+        </StackLayout>
+    </ContentPage>
+    <ContentPage>
+        <StackLayout>
+
+            <StackLayout VerticalOptions="CenterAndExpand" Spacing="20">
+                <Picker x:Name="WordPicker" ItemsSource="{Binding Words}" />
+                <Button Text="Start Game" Command="{Binding StartGameCommand}" FontSize="23"/>
+            </StackLayout>
             
         </StackLayout>
     </ContentPage>
     <ContentPage>
         <StackLayout>
             <Label x:Name="ResultLabel" Text="" FontSize="20" HorizontalOptions="Center"/>
+            <Label x:Name="ScoreLabel" Text="{Binding Score, StringFormat='Score: {0}'}" FontSize="20" HorizontalOptions="Center"/>
+            <Label x:Name="TimerLabel" Text="{Binding TimeRemaining, StringFormat='Time: {0:mm\\:ss}'}" FontSize="20" HorizontalOptions="Center"/>
+
             <Label x:Name="UsedLettersLabel" Text="Used Letters: " FontSize="16" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-        <Label x:Name="SecretWordLabel" Text="Secret Word: ???" FontSize="34" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-        <StackLayout x:Name="KeyboardStack" VerticalOptions="EndAndExpand" BackgroundColor="Green" HeightRequest="200" Padding="10, 0">
+            <Label x:Name="SecretWordLabel" Text="Secret Word: ???" FontSize="34" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <StackLayout>
+             <StackLayout x:Name="KeyboardStack" VerticalOptions="EndAndExpand" BackgroundColor="Green" HeightRequest="200" Padding="10, 0">
             
             <StackLayout.Resources>
                 <Style TargetType="Button">
@@ -32,6 +44,7 @@
                     <Setter Property="Command" Value="{Binding UpdateUserInput}" />
                 </Style>
             </StackLayout.Resources>
+            
             <StackLayout Padding="0, 20" HorizontalOptions="Center" VerticalOptions="Center">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="-5">
                     <Button x:Name="Q" Text="Q" Command="{Binding UpdateUserInput}" CommandParameter="Q"/>
@@ -68,9 +81,10 @@
                     <Button x:Name="M" Text="M" Command="{Binding UpdateUserInput}" CommandParameter="M"/>
 
                 </StackLayout>
-
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage>
+ 
 </CarouselPage>
